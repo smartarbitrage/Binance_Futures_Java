@@ -1,8 +1,5 @@
 package com.binance.client.model.trade;
 
-import com.binance.client.constant.BinanceApiConstants;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
 import java.math.BigDecimal;
 
 public class Order {
@@ -35,9 +32,59 @@ public class Order {
 
     private String type;
 
+    private String workingType;
+
     private Long updateTime;
 
-    private String workingType;
+    private BigDecimal avgPrice;
+
+    private BigDecimal cumQty;
+
+    private boolean priceProtect;
+
+    private boolean closePosition;
+
+    private String origType;
+
+    public BigDecimal getAvgPrice() {
+        return avgPrice;
+    }
+
+    public void setAvgPrice(BigDecimal avgPrice) {
+        this.avgPrice = avgPrice;
+    }
+
+    public BigDecimal getCumQty() {
+        return cumQty;
+    }
+
+    public void setCumQty(BigDecimal cumQty) {
+        this.cumQty = cumQty;
+    }
+
+    public boolean isPriceProtect() {
+        return priceProtect;
+    }
+
+    public void setPriceProtect(boolean priceProtect) {
+        this.priceProtect = priceProtect;
+    }
+
+    public boolean isClosePosition() {
+        return closePosition;
+    }
+
+    public void setClosePosition(boolean closePosition) {
+        this.closePosition = closePosition;
+    }
+
+    public String getOrigType() {
+        return origType;
+    }
+
+    public void setOrigType(String origType) {
+        this.origType = origType;
+    }
 
     public String getClientOrderId() {
         return clientOrderId;
@@ -169,11 +216,28 @@ public class Order {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
-                .append("clientOrderId", clientOrderId).append("cumQuote", cumQuote).append("executedQty", executedQty)
-                .append("orderId", orderId).append("origQty", origQty).append("price", price)
-                .append("reduceOnly", reduceOnly).append("side", side).append("positionSide", positionSide).append("status", status)
-                .append("stopPrice", stopPrice).append("symbol", symbol).append("timeInForce", timeInForce)
-                .append("type", type).append("updateTime", updateTime).append("workingType", workingType).toString();
+        return "Order{" +
+                "clientOrderId='" + clientOrderId + '\'' +
+                ", cumQuote=" + cumQuote +
+                ", executedQty=" + executedQty +
+                ", orderId=" + orderId +
+                ", origQty=" + origQty +
+                ", price=" + price +
+                ", reduceOnly=" + reduceOnly +
+                ", side='" + side + '\'' +
+                ", positionSide='" + positionSide + '\'' +
+                ", status='" + status + '\'' +
+                ", stopPrice=" + stopPrice +
+                ", symbol='" + symbol + '\'' +
+                ", timeInForce='" + timeInForce + '\'' +
+                ", type='" + type + '\'' +
+                ", workingType='" + workingType + '\'' +
+                ", updateTime=" + updateTime +
+                ", avgPrice=" + avgPrice +
+                ", cumQty=" + cumQty +
+                ", priceProtect=" + priceProtect +
+                ", closePosition=" + closePosition +
+                ", origType='" + origType + '\'' +
+                '}';
     }
 }

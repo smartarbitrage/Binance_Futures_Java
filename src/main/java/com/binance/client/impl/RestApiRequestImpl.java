@@ -1,5 +1,6 @@
 package com.binance.client.impl;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -643,6 +644,12 @@ class RestApiRequestImpl {
             result.setType(jsonWrapper.getString("type"));
             result.setUpdateTime(jsonWrapper.getLong("updateTime"));
             result.setWorkingType(jsonWrapper.getString("workingType"));
+            result.setAvgPrice(jsonWrapper.getBigDecimal("avgPrice"));
+            result.setCumQty(jsonWrapper.getBigDecimal("cumQty"));
+            result.setPriceProtect(jsonWrapper.getBoolean("priceProtect"));
+            result.setClosePosition(jsonWrapper.getBoolean("closePosition"));
+            result.setOrigType(jsonWrapper.getString("origType"));
+
             return result;
         });
         return request;
